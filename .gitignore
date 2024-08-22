@@ -1,0 +1,11 @@
+# environment
+/.venv/*
+/.vscode/*
+
+# Credits
+src/config.py
+src/__pycache__/config.cpython-311.pyc
+
+# outputs/Data
+/data/*
+
