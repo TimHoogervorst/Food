@@ -1,17 +1,17 @@
 import requests
-from config import FOOD_DATA_API
 import json
 import pandas as pd
 
 class FoodData():
-    def __init__(self, api_key = FOOD_DATA_API) -> None:
+    def __init__(self, api_key) -> None:
         self.API_KEY = api_key
 
-    def search(self, item: str, limit=1) -> dict:
+    def search(self, item: str, limit=1, datatype=['Foundation', 'Survey (FNDDS)']) -> dict:
         url = f'https://api.nal.usda.gov/fdc/v1/foods/search/?api_key={self.API_KEY}'
         headers = {'Content-Type': 'application/json'}
         data = {"pageSize": limit,
-                "query": item}
+                "query": item,
+                "dataType": datatype}
         response = requests.post(url, headers=headers, json=data)
         return response.json()
 
@@ -64,7 +64,8 @@ class FoodData():
         return pd.json_normalize(all_data)
 
 if __name__ == '__main__':
-    client = FoodData()
+    from config import FOOD_DATA_API
+    client = FoodData(FOOD_DATA_API)
     response = client.search('Butter', limit=1)
     df = client.to_df(response, 'foods')
     print('Working Corectly ... ')

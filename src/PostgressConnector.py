@@ -2,7 +2,7 @@ import psycopg2
 from psycopg2.extensions import connection as Connection
 import threading
 
-from config import CONN_PARAMS
+from .config import CONN_PARAMS
 
 class Postgress:
     _instance = None
@@ -23,15 +23,17 @@ class Postgress:
     def connect() -> Connection:
         return psycopg2.connect(**CONN_PARAMS)
 
-    def fetch(self, sql, fetch=False):
+    def execute_query(self, sql, params):
         with self._lock:
             with self.conn.cursor() as cursor:
-                cursor.execute(sql)
+                cursor.execute(sql, params)
+                self.conn.commit()
 
-                if fetch: 
-                    result = cursor.fetchall()
-                    return result
+    def close(self):
+        if self.conn:
+            self.conn.close()
 
+                
 if __name__ == '__main__':
     cls = Postgress()
     response = cls.fetch('SELECT * FROM films', True)

@@ -4,7 +4,7 @@
 
 # Credits
 src/config.py
-src/__pycache__/config.cpython-311.pyc
+src/__pycache__/*
 
 # outputs/Data
 /data/*

@@ -1,0 +1,2 @@
+,fdcId,description,dataType,brandOwner,marketCountry,modifiedDate,foodCategory,dataSource,servingSizeUnit,servingSize,householdServingFullText,score,microbes,foodAttributes,foodMeasures,foodAttributeTypes
+0,454004,APPLE,Branded,TREECRISP 2 GO,United States,2017-07-14,Pre-Packaged Fruit & Vegetables,LI,g,154.0,5.5 ONZ,1062.587,[],"[{'value': '3', 'name': 'Ingredients', 'id': 1064238}]",[],"[{'name': 'Update Log', 'description': 'Changes that were made to this food', 'id': 998, 'foodAttributes': [{'value': '3', 'name': 'Ingredients', 'id': 1064238}]}]"
