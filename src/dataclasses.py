@@ -97,8 +97,6 @@ class BaseDataClass:
         columns_str = ', '.join(columns)
         placeholders = ', '.join(['%s'] * len(values))
         sql = f"INSERT INTO {table_name} ({columns_str}) VALUES ({placeholders})"
-
-        # Execute the query using the Postgress class
         db.execute_query(sql, values)
 
     def __repr__(self) -> str:

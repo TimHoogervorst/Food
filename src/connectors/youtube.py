@@ -1,6 +1,11 @@
 ### Youtube connector 
 ### Video Link -> Json
 
+
+## TODO 
+# add more languaes support with transcripts?
+
+
 from youtube_transcript_api import YouTubeTranscriptApi
 from openai import OpenAI
 from ..config import OPEN_AI
@@ -26,12 +31,12 @@ class Chat():
         model="gpt-4o-mini",
         messages=[{
                 "role": "system",
-
                 "content": (
-                    "You are a helpful assistant. Translate the following video transcript into a JSON format using metric units. "
+                    "You are a helpful assistant. Convert the following video transcript into a JSON format using metric units and English language. "
                     "The JSON should include the following fields: "
-                    "Name, description, cuisine, category, servings, preptime, cooktime, difficulty, list of steps, list of ingredients.")},
-
+                    "name, description, cuisine, category, servings, preptime, cooktime, difficulty, steps, and ingredients. "
+                    "Each ingredient should have a name and an amount (e.g., {name: <name>, amount: <amount>})."
+                    )},
                 {   "role": "user",
                     "content": transcript}])
         return self.jsonify(completion)
@@ -41,10 +46,10 @@ class Youtube():
     def __init__(self) -> None:
         pass
 
-    def get_youtube_transcript(self, video_url):
+    def get_youtube_transcript(self, video_url, languages='en'):
         try:
             video_id = video_url.split('v=')[-1].split('&')[0]
-            transcript = YouTubeTranscriptApi.get_transcript(video_id)
+            transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=[languages])
             transcript_text = ' '.join([item['text'] for item in transcript])
             return transcript_text
         except Exception as e:
