@@ -2,7 +2,6 @@
 
 # REFERENCE PACKAGES
 from .FoodDataWrapper import FoodData
-from .config import FOOD_DATA_API
 from .PostgressConnector import Postgress
 
 # PIPY PACK
@@ -42,7 +41,7 @@ def clean_data(func):
     return wrapper
 
 ## Base class for populating attributes from a DataFrame row
-class BaseDataClass:
+class DataClassBase:
 
     attribute_mapping: Dict[str, Union[str, List[str]]] = {}
 
@@ -104,7 +103,7 @@ class BaseDataClass:
         return f"{self.__class__.__name__}({attrs})"
 
 ## CLASS OF RECIPE
-class Recipe(BaseDataClass):
+class Recipe(DataClassBase):
 
     attribute_mapping = {
         'steps': ['list_of_steps', 'list of steps', 'step'],
@@ -127,7 +126,7 @@ class Recipe(BaseDataClass):
         self.ingredients = None
 
 ## CLASS OF INGREDIENT
-class Ingredient(BaseDataClass):
+class Ingredient(DataClassBase):
     def __init__(self) -> None:
         self.tablename = 'development.ingredients'
         self.fdcid = None
