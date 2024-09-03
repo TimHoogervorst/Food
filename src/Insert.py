@@ -10,6 +10,8 @@ import pandas as pd
 import functools
 import numpy as np
 import json
+import re
+from typing import Any, Dict, Union, List
 
 
 ## Wrapper functions
@@ -41,10 +43,42 @@ def clean_data(func):
 
 ## Base class for populating attributes from a DataFrame row
 class BaseDataClass:
+
+    attribute_mapping: Dict[str, Union[str, List[str]]] = {}
+
     def from_dataframe_row(self, row: pd.Series) -> None:
-        for column in row.index:
-            if column.lower() in [attr for attr in dir(self)]:
-                setattr(self, column.lower(), row[column])
+        self._populate_from_source(row.to_dict())
+
+    def from_json(self, json_data: Union[Dict[str, Any], str]) -> None:
+        if isinstance(json_data, str):
+            json_data = json.loads(json_data)
+        self._populate_from_source(json_data)
+
+    def _populate_from_source(self, source: Dict[str, Any]) -> None:
+        attr_map = {self._normalize(attr): attr for attr in dir(self) if not attr.startswith('_')}
+        
+        reverse_map = {}
+        for attr, keys in self.attribute_mapping.items():
+            if isinstance(keys, list):
+                for key in keys:
+                    reverse_map[self._normalize(key)] = attr
+            else:
+                reverse_map[self._normalize(keys)] = attr
+
+        for key, value in source.items():
+            normalized_key = self._normalize(key)
+            
+            if normalized_key in reverse_map:
+                attr_name = reverse_map[normalized_key]
+                setattr(self, attr_name, value)
+            elif normalized_key in attr_map:
+                setattr(self, attr_map[normalized_key], value)
+            else:
+                print(f"Warning: No matching attribute found for '{key}'")
+
+    def _normalize(self, name: str) -> str:
+        # Convert to lowercase and remove non-alphanumeric characters for comparison
+        return re.sub(r'\W', '', name).lower()
 
     @clean_data
     def save_to_db(self, db: Postgress) -> None:
@@ -73,16 +107,26 @@ class BaseDataClass:
 
 ## CLASS OF RECIPE
 class Recipe(BaseDataClass):
+
+    attribute_mapping = {
+        'steps': ['list_of_steps', 'list of steps', 'step'],
+        'title': ['name', 'recipe_name', 'recipe name'],
+        'servings': ['serving', 'amount'],
+        'ingredients': ['list_of_ingredients', 'list of ingredients']
+    }
+
     def __init__(self) -> None:
         self.tablename = 'development.recipes'
         self.title = None
         self.description = None
         self.cuisine = None
         self.category = None
-        self.serving = None
+        self.servings = None
         self.preptime = None
         self.cooktime = None
         self.difficulty = None
+        self.steps = None
+        self.ingredients = None
 
 ## CLASS OF INGREDIENT
 class Ingredient(BaseDataClass):
