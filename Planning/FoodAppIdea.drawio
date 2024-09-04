@@ -341,7 +341,7 @@
           <mxGeometry x="490" y="635" width="150" height="40" as="geometry" />
         </mxCell>
         <mxCell id="6DJWDwaTz88Fq5ZFyFez-7" value="" style="whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="-400" y="290" width="360" height="270" as="geometry" />
+          <mxGeometry x="-400" y="290" width="360" height="410" as="geometry" />
         </mxCell>
         <mxCell id="6DJWDwaTz88Fq5ZFyFez-8" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Connectors&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="-400" y="250" width="130" height="40" as="geometry" />
@@ -360,6 +360,18 @@
         </mxCell>
         <mxCell id="6DJWDwaTz88Fq5ZFyFez-13" value="Gets raw from Connector" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.4;" vertex="1" parent="1">
           <mxGeometry x="-40" y="300" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6DJWDwaTz88Fq5ZFyFez-14" value="gather" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="125" y="210" width="70" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="6DJWDwaTz88Fq5ZFyFez-15" value="gather - youtube" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="312.5" width="70" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="6DJWDwaTz88Fq5ZFyFez-16" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Food Data API&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-360" y="540" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6DJWDwaTz88Fq5ZFyFez-17" value="gather - ingredients" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="312.5" width="70" height="55" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
