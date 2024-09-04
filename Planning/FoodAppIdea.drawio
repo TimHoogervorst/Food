@@ -317,7 +317,7 @@
           <mxGeometry x="80" y="490" width="560" height="230" as="geometry" />
         </mxCell>
         <mxCell id="LDawz4SR57QL825xHJhi-5" value="" style="whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="450" y="112" width="180" height="280" as="geometry" />
+          <mxGeometry x="320" y="112" width="180" height="280" as="geometry" />
         </mxCell>
         <mxCell id="kaZyuZw_IKYQu8JT7XuN-1" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;" vertex="1" parent="1">
           <mxGeometry x="80" y="487.5" width="45" height="60" as="geometry" />
@@ -359,19 +359,16 @@
           <mxGeometry x="-370" y="480" width="130" height="40" as="geometry" />
         </mxCell>
         <mxCell id="6DJWDwaTz88Fq5ZFyFez-13" value="Gets raw from Connector" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.4;" vertex="1" parent="1">
-          <mxGeometry x="-40" y="300" width="140" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="6DJWDwaTz88Fq5ZFyFez-14" value="gather" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="125" y="210" width="70" height="55" as="geometry" />
-        </mxCell>
-        <mxCell id="6DJWDwaTz88Fq5ZFyFez-15" value="gather - youtube" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="120" y="312.5" width="70" height="55" as="geometry" />
+          <mxGeometry x="-50" y="300" width="160" height="80" as="geometry" />
         </mxCell>
         <mxCell id="6DJWDwaTz88Fq5ZFyFez-16" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Food Data API&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="-360" y="540" width="150" height="40" as="geometry" />
+          <mxGeometry x="-370" y="540" width="150" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="6DJWDwaTz88Fq5ZFyFez-17" value="gather - ingredients" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="200" y="312.5" width="70" height="55" as="geometry" />
+        <mxCell id="6DJWDwaTz88Fq5ZFyFez-18" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/long-shadow-web-icons/512/python-128.png" vertex="1" parent="1">
+          <mxGeometry x="320" y="112" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="6DJWDwaTz88Fq5ZFyFez-19" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Injection&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="310" y="72" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
