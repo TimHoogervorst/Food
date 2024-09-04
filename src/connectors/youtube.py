@@ -1,15 +1,9 @@
 ### Youtube connector 
 ### Video Link -> Json
 
-
-## TODO 
-# add more languaes support with transcripts?
-
-
 from youtube_transcript_api import YouTubeTranscriptApi
 from openai import OpenAI
 from ..config import OPEN_AI
-
 import json
 
 class Chat():

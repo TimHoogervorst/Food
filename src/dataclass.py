@@ -113,7 +113,7 @@ class Recipe(DataClassBase):
     }
 
     def __init__(self) -> None:
-        self.tablename = 'development.recipes'
+        self.tablename = 'datamodel.recipes'
         self.title = None
         self.description = None
         self.cuisine = None
@@ -128,7 +128,7 @@ class Recipe(DataClassBase):
 ## CLASS OF INGREDIENT
 class Ingredient(DataClassBase):
     def __init__(self) -> None:
-        self.tablename = 'development.ingredients'
+        self.tablename = 'datamodel.ingredients'
         self.fdcid = None
         self.description = None
         self.datatype = None
